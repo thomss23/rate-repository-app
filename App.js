@@ -1,9 +1,19 @@
+import { StatusBar } from 'expo-status-bar';
+import { NativeRouter } from 'react-router-native';
 import Main from './src/components/Main';
 
-export default function App() {
-  console.log("test")
-  return <Main/>
-}
+const App = () => {
+  return (
+    <>
+      <NativeRouter>
+        <Main />
+      </NativeRouter>
+      <StatusBar style="auto" />
+    </>
+  );
+};
+
+export default App;
 
 // const styles = StyleSheet.create({
 //   container: {

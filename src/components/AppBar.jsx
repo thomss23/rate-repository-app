@@ -1,13 +1,13 @@
-import { View, StyleSheet, Pressable } from 'react-native';
+import { View, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
+import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
     backgroundColor: "#24292e",
     height: 80,
-    // justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row'
   },
@@ -26,12 +26,23 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
-  return <View style={styles.container}>
-  <Pressable onPress={() => console.log('pressed')}>
-    <Text style={styles.text}>Repositories</Text>
-  </Pressable>
+  return(
+  <View style={styles.container}>
+    <ScrollView horizontal>
 
-  </View>;
-};
+      <View>
+        <Link to="/signin">
+          <Text style={styles.text}>Sign in</Text>
+        </Link>
+      </View>
+
+      <Pressable onPress={() => console.log('pressed')}>
+          <Link to="/">
+            <Text style={styles.text}>Repositories</Text>
+          </Link>
+      </Pressable>
+    </ScrollView>
+  </View>
+)};
 
 export default AppBar;
