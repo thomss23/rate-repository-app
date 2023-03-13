@@ -41,6 +41,7 @@ const AppBar = () => {
             <Text style={styles.text}>Repositories</Text>
           </Link>
       </Pressable>
+      
     </ScrollView>
   </View>
 )};
