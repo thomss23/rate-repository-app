@@ -3,7 +3,6 @@ import { useField } from 'formik';
 
 import TextInput from './TextInput';
 import Text from './Text';
-import { useState } from 'react';
 
 const styles = StyleSheet.create({
   errorText: {
