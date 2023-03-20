@@ -21,11 +21,11 @@ const RepositoryList = () => {
     {fetchPolicy: 'cache-and-network'}
     );
 
-  if(loading) {
+  if (loading) {
     return <Text>Loading...</Text>
   }
 
-  if(error) {
+  if (error) {
     return <Text>Error</Text>
   }
   

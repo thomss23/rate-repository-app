@@ -4,8 +4,11 @@ import Main from './src/components/Main';
 import { ApolloProvider } from '@apollo/client';
 import createApolloClient from './src/utils/apolloClient';
 const apolloClient = createApolloClient();
+import Constants from 'expo-constants';
 
 const App = () => {
+  console.log(Constants.manifest);
+
   return (
     <>
       <NativeRouter>
