@@ -6,14 +6,13 @@ export const useSignIn = () => {
 
   const signIn = async ({ username, password }) => {
     try {
-      const { data } = await mutate({
-        variables: { username, password },
-      });
-      return data;
-    } catch (e) {
-      throw new Error(e.message);
-    }
-  };
+        const { data } = await mutate({
+            variables: { username, password },
+        });
+        return data;
+        } catch (e) {
+        throw new Error(e.message);
+    }};
 
   return [signIn, result];
 };
