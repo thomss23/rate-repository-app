@@ -12,7 +12,6 @@ const apolloClient = createApolloClient(authStorage);
 
 const App = () => {
   console.log(Constants.manifest);
-  authStorage.removeAccessToken()
   return (
     <>
       <NativeRouter>
