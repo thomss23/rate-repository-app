@@ -11,10 +11,11 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 export const RepositoryListContainer = ({ repositories }) => {
+   console.log("REPOSITORIES:", repositories)
     const repositoryNodes = repositories
       ? repositories.edges.map((edge) => edge.node)
       : [];
-  
+     
     return (
         <FlatList
         data={repositoryNodes}

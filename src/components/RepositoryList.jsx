@@ -2,7 +2,6 @@ import Text from './Text';
 import useRepositories from '../hooks/useRepositories';
 import { RepositoryListContainer } from './RepositoryListContainer';
 
-
 const RepositoryList = () => {
   const { repositories, loading, error } = useRepositories();
 
