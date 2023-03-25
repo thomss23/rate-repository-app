@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     letterSpacing: 1.5,
-    marginLeft: 16 // adjust this value to shift the text to the right
-
+    marginLeft: 16 
   },
   logo: {
     width: 48,

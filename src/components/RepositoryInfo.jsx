@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
 });
 const RepositoryInfo = ({repository}) => {
  return(
-    <View style={styles.repoInfo}>
-        <Text style={styles.repoName} color='title' fontWeight='bold' fontSize='subheading'>{repository.fullName}</Text>
-        <Text style={styles.repoDescription}>{repository.description}</Text>
+    <View testID="repositoryInfo" style={styles.repoInfo}>
+        <Text testID='name' style={styles.repoName} color='title' fontWeight='bold' fontSize='subheading'>{repository.fullName}</Text>
+        <Text testID='description' style={styles.repoDescription}>{repository.description}</Text>
         <View style={{ flexDirection: 'row' }}>
-            <Text style={styles.repoLanguage}>{repository.language}</Text>
+            <Text testID='language' style={styles.repoLanguage}>{repository.language}</Text>
         </View>
     </View>
  )
