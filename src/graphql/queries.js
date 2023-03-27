@@ -27,6 +27,29 @@ query Repositories {
   }
 `;
 
+export const GET_SINGLE_REPOSITORY = gql`
+  query GetRepositoryInfo($repositoryId: ID!) {
+    repository(id: $repositoryId) {
+      id
+      ownerName
+      name
+      createdAt
+      fullName
+      ratingAverage
+      reviewCount
+      stargazersCount
+      watchersCount
+      forksCount
+      openIssuesCount
+      url
+      ownerAvatarUrl
+      description
+      language
+      userHasReviewed
+    }
+  }
+`;
+
 export const ME = gql`
   query {
     me {

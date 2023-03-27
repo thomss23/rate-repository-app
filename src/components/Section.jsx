@@ -3,9 +3,6 @@ import { addSeparatorToNumber } from "../utils/mathHelpers";
 import Text from "./Text"
 
 const styles = StyleSheet.create({
-    section: {
-        //TODO: COMPLETE THIS
-    },
     name: {
         paddingTop: 5,
         paddingBottom: 10

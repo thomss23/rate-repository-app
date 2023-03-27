@@ -70,11 +70,9 @@ const AppBar = () => {
         </View>
       } 
 
-      <Pressable onPress={() => console.log('pressed')}>
-          <Link to="/">
-            <Text style={styles.text}>Repositories</Text>
-          </Link>
-      </Pressable>
+      <Link to="/">
+        <Text style={styles.text}>Repositories</Text>
+      </Link>
       
     </ScrollView>
   </View>
