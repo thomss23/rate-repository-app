@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 
 });
 
-const ReviewSection = ({repository}) => {
+const RepositoryCountSection = ({repository}) => {
     return(
         <View testID="reviewSection" style={styles.reviewSection}>
             <Section testID="stargazersCount" count={repository.stargazersCount} name='Stars'></Section>
@@ -20,4 +20,4 @@ const ReviewSection = ({repository}) => {
     )
 }
 
-export default ReviewSection;
+export default RepositoryCountSection;

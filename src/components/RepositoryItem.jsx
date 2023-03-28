@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import Heading from './Heading';
-import ReviewSection from './ReviewSection';
+import RepositoryCountSection from './RepositoryCountSection';
 
 const RepositoryItem = ({repository}) => {
     return(
         <View>
             <Heading repository={repository}/>
-            <ReviewSection repository={repository}/>
+            <RepositoryCountSection repository={repository}/>
         </View>
     )
 }
