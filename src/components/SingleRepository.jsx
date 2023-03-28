@@ -8,42 +8,6 @@ import Text from "./Text";
 import * as Linking from 'expo-linking';
 import { formatDate } from "../utils/dateUtils";
 
-// const SingleViewRepository = () => {
-//     const repositoryId = useParams().id
-
-//     const { loading, error, data } = useQuery(GET_SINGLE_REPOSITORY, {
-//         variables: { repositoryId },
-//         fetchPolicy: 'cache-and-network',
-//     });
-    
-//     if (loading) {
-//         return <Text>Loading...</Text>;
-//     }
-
-//     if (error) {
-//         return <Text>Error: {error.message}</Text>;
-//     }
-    
-//     const repository = data.repository;
-
-//     const visitGithubLink = () => {
-//         Linking.openURL(repository.url);
-//     }
-//     return(    
-//         <View>
-//             <Heading repository={repository}/>
-//             <RepositoryCountSection repository={repository}/>
-//             <Pressable onPress={visitGithubLink}>
-//                 <View style={styles.submit}>
-//                     <Text style={styles.submitText}>Open in Github</Text>
-//                 </View>
-//             </Pressable>
-//         </View>
-//     )
-
-// }
-
-
 const styles = StyleSheet.create({
     submit: {
       backgroundColor: 'blue',
