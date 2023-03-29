@@ -29,7 +29,10 @@ const styles = StyleSheet.create({
   },
   signedInOptions: {
     flexDirection: 'row'
-  }
+  },
+  signedOutOptions: {
+    flexDirection: 'row'
+  },
 });
 
 const AppBar = () => {
@@ -81,9 +84,13 @@ const AppBar = () => {
 
 
         :
-        <View>
+        <View style={styles.signedOutOptions}>
           <Link to="/signin">
             <Text style={styles.text}>Sign in</Text>
+          </Link>
+
+          <Link to="/signup">
+            <Text style={styles.text}>Sign up</Text>
           </Link>
         </View>
       } 
