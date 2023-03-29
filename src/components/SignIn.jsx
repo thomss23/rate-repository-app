@@ -28,6 +28,7 @@ const SignIn = () => {
     try {
       await signIn({ username, password });
       const loggedInUser = await authStorage.getAccessToken();
+      console.log(loggedInUser)
       if (loggedInUser) {
         navigate('/');
       }

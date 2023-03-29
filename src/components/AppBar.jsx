@@ -1,7 +1,7 @@
 import { View, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
-import { Link } from 'react-router-native';
+import { Link, useNavigate } from 'react-router-native';
 import { useQuery } from '@apollo/client'; 
 import { ME } from '../graphql/queries';
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
     letterSpacing: 1.5,
     marginLeft: 16 
   },
@@ -26,12 +26,16 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     marginLeft: 16
+  },
+  signedInOptions: {
+    flexDirection: 'row'
   }
 });
 
 const AppBar = () => {
   const [signedIn, setSignedIn] = useState(false);
   const authStorage = useAuthStorage();
+  const navigate = useNavigate()
   const client = useApolloClient();
 
   const { data } = useQuery(ME, {
@@ -50,18 +54,32 @@ const AppBar = () => {
     await authStorage.removeAccessToken();
     client.resetStore();
     setSignedIn(false);
+    navigate('/')
   };
 
   return(
   <View style={styles.container}>
     <ScrollView horizontal>
 
+    <Link to="/">
+        <Text style={styles.text}>Repositories</Text>
+    </Link>
+
       {
         signedIn 
         ?
-        <Pressable onPress={() => handleSignOut()}>
-          <Text style={styles.text}>Sign out</Text>
-        </Pressable>
+        <View style={styles.signedInOptions}>
+          <View >
+            <Link to="/createReview">
+              <Text style={styles.text}>Create a review</Text>
+            </Link>
+          </View>
+          <Pressable onPress={() => handleSignOut()}>
+            <Text style={styles.text}>Sign out</Text>
+          </Pressable>
+        </View>
+
+
         :
         <View>
           <Link to="/signin">
@@ -69,11 +87,6 @@ const AppBar = () => {
           </Link>
         </View>
       } 
-
-      <Link to="/">
-        <Text style={styles.text}>Repositories</Text>
-      </Link>
-      
     </ScrollView>
   </View>
 )};
