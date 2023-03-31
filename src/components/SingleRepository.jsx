@@ -6,7 +6,7 @@ import Heading from "./Heading";
 import RepositoryCountSection from "./RepositoryCountSection";
 import Text from "./Text";
 import * as Linking from 'expo-linking';
-import { formatDate } from "../utils/dateUtils";
+import ReviewItem from "./ReviewItem";
 
 const styles = StyleSheet.create({
     submit: {
@@ -89,26 +89,6 @@ const SingleRepositoryInfo = ({ repository }) => {
     )
   };
   
-  const ReviewItem = ({ review }) => {
-    return(
-      <View style={styles.reviewContainer}>
-
-        <View style={styles.rating}>
-          <Text style={styles.ratingText}>{review.rating}</Text>
-        </View>
-
-        <View style={styles.reviewDetailsContainer}>
-          <Text style={styles.username}>{review.user.username}</Text>
-          <Text style={styles.created}>{formatDate(review.createdAt)}</Text>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>{review.text}</Text>
-          </View>
-        </View>
-      </View>
-    )
-  };
-  
-
   const ItemSeparator = () => <View style={styles.separator} />;
 
   const SingleRepository = () => {

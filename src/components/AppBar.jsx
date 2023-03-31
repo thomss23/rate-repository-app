@@ -72,11 +72,12 @@ const AppBar = () => {
         signedIn 
         ?
         <View style={styles.signedInOptions}>
-          <View >
             <Link to="/createReview">
               <Text style={styles.text}>Create a review</Text>
             </Link>
-          </View>
+            <Link to="/reviews">
+              <Text style={styles.text}> My reviews</Text>
+            </Link>
           <Pressable onPress={() => handleSignOut()}>
             <Text style={styles.text}>Sign out</Text>
           </Pressable>

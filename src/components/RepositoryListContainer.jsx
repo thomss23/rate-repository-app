@@ -25,8 +25,8 @@ export class RepositoryListContainer extends React.Component {
   }
   
   renderHeader = () => {
-    const { orderBy, handleOrderChange, searchKeyword, setSearchKeyword, searchInputRef, selectedKeyword } = this.props;
-    console.log(orderBy)
+    const {handleOrderChange, searchKeyword, setSearchKeyword, searchInputRef, selectedKeyword } = this.props;
+
     return (
       <View>
         <TextInput style={styles.input}

@@ -9,7 +9,6 @@ const RepositoryList = () => {
   const [orderBy, setOrderBy] = useState('CREATED_AT');
   const [orderDirection, setOrderDirection] = useState('DESC');
   const [selectedKeyword, setSelectedKeyword] = useState('CREATED_AT');
-
   const [searchKeyword, setSearchKeyword] = useState('');
   const [debouncedSearchKeyword] = useDebounce(searchKeyword, 500);
   const navigate = useNavigate();
@@ -54,7 +53,7 @@ const RepositoryList = () => {
 
   return (
     <>
-      <RepositoryListContainer selectedKeyword={selectedKeyword} searchInputRef={searchInputRef} navigateToSingleViewRepository={navigateToSingleViewRepository} repositories={repositories} orderBy={orderBy} handleOrderChange={handleOrderChange} searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
+      <RepositoryListContainer selectedKeyword={selectedKeyword} searchInputRef={searchInputRef} navigateToSingleViewRepository={navigateToSingleViewRepository} repositories={repositories} handleOrderChange={handleOrderChange} searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
     </>
   );
 };
