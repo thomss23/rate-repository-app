@@ -6,10 +6,15 @@ import Text from "./Text";
 
 const styles = StyleSheet.create({
     container: {
-      marginHorizontal: 10,
       marginVertical: 5,
-    }
+    },
+    separator: {
+        height: 10,
+        backgroundColor: 'rgb(230, 230, 230)'
+    }, 
 });
+
+const ItemSeparator = () => <View style={styles.separator} />;
 
 const UserReviews = () => {
     const { data, loading, refetch } = useQuery(ME, {
@@ -31,6 +36,7 @@ const UserReviews = () => {
             keyExtractor={({ node }) => node.id}
             renderItem={({ item }) => <ReviewItem review={item.node} refetch={refetch}/>}
             ListEmptyComponent={<Text>No reviews yet.</Text>}
+            ItemSeparatorComponent={ItemSeparator}
             />
         </View>
     );

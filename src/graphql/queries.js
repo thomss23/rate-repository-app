@@ -28,8 +28,8 @@ query Repositories {
 `;
 
 export const GET_REPOSITORIES_WITH_FILTERS = gql`
-query Repositories($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection, $searchKeyword: String) {
-  repositories(orderBy: $orderBy, orderDirection: $orderDirection, searchKeyword: $searchKeyword) {
+query Repositories($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection, $searchKeyword: String, $first: Int, $after: String) {
+  repositories(orderBy: $orderBy, orderDirection: $orderDirection, searchKeyword: $searchKeyword, first: $first, after: $after) {
     edges {
       node {
         id
@@ -50,12 +50,18 @@ query Repositories($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirec
         userHasReviewed
       }
     }
+    pageInfo {
+      startCursor
+      hasNextPage
+      hasPreviousPage
+      endCursor
+    }
   }
 }
 `;
 
 export const GET_SINGLE_REPOSITORY = gql`
-  query GetRepositoryInfo($repositoryId: ID!) {
+  query GetRepositoryInfo($repositoryId: ID!, $first: Int!, $after: String) {
     repository(id: $repositoryId) {
       id
       ownerName
@@ -73,7 +79,7 @@ export const GET_SINGLE_REPOSITORY = gql`
       description
       language
       userHasReviewed
-      reviews {
+      reviews(first: $first, after: $after) {
         edges {
           node {
             id
@@ -85,6 +91,11 @@ export const GET_SINGLE_REPOSITORY = gql`
               username
             }
           }
+        }
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
         }
       }
     }

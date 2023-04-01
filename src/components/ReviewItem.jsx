@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         marginTop: 5
     },
 });
@@ -55,24 +55,27 @@ const styles = StyleSheet.create({
 
 
 const ReviewItem = ({ review, refetch }) => {
-    console.log(review.id)
+
     const [deleteReview] = useMutation(DELETE_REVIEW, {
         onError: (error) => {
           console.log(error);
         }
-      });
+    });
+
     const navigate = useNavigate();
 
     const handleViewRepository = () => {
         navigate(`/repository/${review.repository.id}`);
-      };
+    };
     
       const handleDeleteReview = () => {
         Alert.alert(
           'Delete review',
           'Are you sure you want to delete this review?',
           [
-            { text: 'Cancel', style: 'cancel' },
+            { text: 'Cancel',
+             style: 'cancel' 
+            },
             {
               text: 'Delete',
               onPress: async () => {
@@ -107,8 +110,6 @@ const ReviewItem = ({ review, refetch }) => {
             : 
             '' 
             }
-
-          
         </View>
       </View>
     )
